@@ -30,7 +30,7 @@ public class UserService implements UserDetailsService {
     }
 
     @Autowired
-    public void setRoleService(@Lazy RoleService roleService) {
+    public void setRoleService(RoleService roleService) {
         this.roleService = roleService;
     }
 

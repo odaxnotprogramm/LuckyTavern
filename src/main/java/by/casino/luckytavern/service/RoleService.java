@@ -11,7 +11,6 @@ public class RoleService {
     private final RoleRepository roleRepository;
 
     public Role getUserRole() {
-        return roleRepository.findByName("ROLE_USER")
-                .orElseThrow(() -> new IllegalArgumentException("Роль 'ROLE_USER' не найдена"));
+        return roleRepository.findByName("ROLE_USER").get();
     }
 }
