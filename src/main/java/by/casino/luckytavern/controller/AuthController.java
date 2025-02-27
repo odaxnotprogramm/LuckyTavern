@@ -5,9 +5,7 @@ import by.casino.luckytavern.dto.RegistrationUserDto;
 import by.casino.luckytavern.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,7 +14,7 @@ public class AuthController {
 
     @PostMapping("/auth")
     public ResponseEntity<?> createAuthToken(@RequestBody JwtRequest authRequest) {
-        return authService.createAuthToken(authRequest);
+        return authService.login(authRequest);
     }
 
     @PostMapping("/registration")

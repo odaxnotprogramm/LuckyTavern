@@ -10,22 +10,20 @@ import java.security.Principal;
 @RequiredArgsConstructor
 public class MainController {
     @GetMapping("/unsecured")
-    public String unsecuredData() {
-        return "Unsecured data";
+    public String unsecured() {
+        return "unsecured";
     }
 
     @GetMapping("/secured")
-    public String securedData() {
-        return "Secured data";
+    public String securedData(Principal principal) {
+        if(principal != null) {
+            return principal.getName();
+        }
+        return null;
     }
 
     @GetMapping("/admin")
     public String adminData() {
         return "Admin data";
-    }
-
-    @GetMapping("/info")
-    public String userData(Principal principal) {
-        return principal.getName();
     }
 }
